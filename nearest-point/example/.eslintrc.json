@@ -1,0 +1,17 @@
+{
+  "extends": [
+    "airbnb-base"
+  ],
+  "rules": {
+    "no-console": "off",
+    "import/no-unresolved": "off",
+    "import/extensions": "off",
+    "no-case-declarations": "off",
+    "no-plusplus": "off",
+    "import/prefer-default-export": "off"
+  },
+  "env": {
+    "browser": true,
+    "node": true
+  }
+}
