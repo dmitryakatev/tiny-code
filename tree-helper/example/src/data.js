@@ -1,0 +1,80 @@
+export const list = [{
+  id: 4,
+  parentId: 2,
+}, {
+  id: 10,
+  parentId: 5,
+}, {
+  id: 11,
+  parentId: 5,
+}, {
+  id: 12,
+  parentId: 5,
+}, {
+  id: 13,
+  parentId: 11,
+}, {
+  id: 17,
+  parentId: 9,
+}, {
+  id: 18,
+  parentId: 9,
+}, {
+  id: 19,
+  parentId: 9,
+}, {
+  id: 20,
+  parentId: 17,
+}, {
+  id: 21,
+  parentId: 17,
+}, {
+  id: 22,
+  parentId: 17,
+}, {
+  id: 5,
+  parentId: 2,
+}, {
+  id: 6,
+  parentId: 2,
+}, {
+  id: 14,
+  parentId: 11,
+}, {
+  id: 15,
+  parentId: 12,
+}, {
+  id: 16,
+  parentId: 9,
+}, {
+  id: 7,
+  parentId: 3,
+}, {
+  id: 1,
+  parentId: 0,
+}, {
+  id: 2,
+  parentId: 1,
+}, {
+  id: 3,
+  parentId: 1,
+}, {
+  id: 8,
+  parentId: 3,
+}, {
+  id: 9,
+  parentId: 3,
+}, {
+  id: 23,
+  parentId: 20,
+}, {
+  id: 24,
+  parentId: 20,
+}, {
+  id: 25,
+  parentId: 24,
+}];
+
+list.forEach((item) => {
+  item.name = `name ${item.id}`;
+});

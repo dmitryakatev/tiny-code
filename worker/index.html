@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>example</title>
+    <style>
+        .desc {
+            display: inline-block;
+            width: 110px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <span class="desc">generage text: </span>
+        <button class="gen-text-main">main thread</button>
+        <button class="gen-text-worker">worker thread</button>
+    </div>
+    <div>
+        <span class="desc">check strategies: </span>
+        <button class="check-strategis-main">main thread</button>
+        <button class="check-strategis-worker">worker thread</button>
+    </div>
+
+
+    <script src="./code/code.js"></script>
+    <script src="./main-thread.js"></script>
+    <script src="./worker-thread.js"></script>
+    <script src="./main.js"></script>
+</body>
+
+</html>

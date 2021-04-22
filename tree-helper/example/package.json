@@ -1,0 +1,22 @@
+{
+  "name": "tree-helper",
+  "version": "0.1.0",
+  "private": false,
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^7.22.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-webpack-plugin": "^2.5.2",
+    "html-webpack-plugin": "^5.3.1",
+    "webpack": "^5.27.1",
+    "webpack-cli": "^4.5.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "scripts": {
+    "start": "webpack serve --env NODE_ENV=development",
+    "build": "webpack --env NODE_ENV=production --progress",
+    "lint": "eslint src/**/*.js",
+    "lint:fix": "eslint src/**/*.js --fix"
+  }
+}
