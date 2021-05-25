@@ -14,7 +14,7 @@
       callback();
       const dateEnd = new Date();
 
-      return dateEnd - dateStart;
+      return dateEnd.getTime() - dateStart.getTime();
     };
 
     const log = (text) => {
@@ -28,8 +28,6 @@
         setTimeout(() => {
           const count = 1_000_000;
           const instance = create();
-          const nameSet = `${name} set`;
-          const nameGet = `${name} get`;
 
           const write = timer(() => {
             for (let i = 0; i < count; ++i) {
