@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>speed test</title>
+</head>
+
+<body>
+  <script>
+
+    const timer = (callback) => {
+      const dateStart = new Date();
+      callback();
+      const dateEnd = new Date();
+
+      return dateEnd - dateStart;
+    };
+
+    const log = (text) => {
+      const div = document.createElement('div');
+      div.innerHTML = text;
+      document.body.appendChild(div);
+    };
+
+    const test = ({ name, create, setter, getter }) => {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          const count = 1_000_000;
+          const instance = create();
+          const nameSet = `${name} set`;
+          const nameGet = `${name} get`;
+
+          const write = timer(() => {
+            for (let i = 0; i < count; ++i) {
+              setter(instance, i);
+            }
+          });
+
+          const rewrite = timer(() => {
+            for (let i = 0; i < count; ++i) {
+              setter(instance, i);
+            }
+          });
+
+          const read = timer(() => {
+            for (let i = 0; i < count; ++i) {
+              getter(instance, i);
+            }
+          });
+
+          log(`write: ${write}ms, rewrite: ${rewrite}ms, read: ${read}ms`);
+
+          resolve();
+        }, 100);
+      });
+    };
+
+    const test5times = (config) => {
+      return new Promise((resolve) => {
+        const count = 5;
+        const runner = (index) => {
+          if (index < count) {
+            test(config).then(() => {
+              runner(index + 1);
+            })
+          } else {
+            resolve();
+          }
+        };
+
+        runner(0);
+      });
+    };
+
+    const run = async () => {
+      log('map:');
+      await test5times({
+        create() {
+          return new Map();
+        },
+        setter(inst, i) {
+          inst.set(i, i);
+        },
+        getter(inst, i) {
+          return inst.get(i);
+        },
+      });
+
+      log('object:');
+      await test5times({
+        create() {
+          return {};
+        },
+        setter(inst, i) {
+          inst[i] = i;
+        },
+        getter(inst, i) {
+          return inst[i];
+        },
+      });
+
+      log('done!');
+    };
+
+    run();
+
+  </script>
+</body>
+
+</html>
